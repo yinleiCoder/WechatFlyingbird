@@ -7,6 +7,7 @@ import {Land} from "./js/runtime/Land.js";
 import {Birds} from "./js/player/Birds.js";
 import {StartButton} from "./js/player/StartButton.js";
 import {Score} from "./js/player/Score.js";
+import { UserInfo } from "./js/getUserInfo.js";
 export class Main{
 
     constructor() {
@@ -34,6 +35,34 @@ export class Main{
       this.dataStore.canvas = this.canvas;
       this.dataStore.ctx = this.ctx;
       this.dataStore.res = map;
+
+    //   const button = wx.createUserInfoButton({
+    //     type: 'text',
+    //     text: '登录游戏',
+    //     style: {
+    //       left: 10,
+    //       top: 76,
+    //       width: 200,
+    //       height: 40,
+    //       lineHeight: 40,
+    //       backgroundColor: '#e67e22',
+    //       color: '#ffffff',
+    //       textAlign: 'center',
+    //       fontSize: 16,
+    //       borderRadius: 4
+    //     }
+    //   })
+    //   button.onTap((res) => {
+    //     // 此处可以获取到用户信息
+    //     // console.log(res)
+    //   })
+
+      const user = new UserInfo();
+      user.download();
+    //   user.getUserInfo();
+
+    //   user.login();
+    //   user.getSettings();
 
       this.init();
       this.director.isGameOver = true;
